@@ -1,0 +1,12 @@
+.org 0x000
+LOAD MQ, M(t) MUL M(t)
+LOAD MQ STOR M(result)
+LOAD MQ, M(result) MUL M(const3)
+LOAD MQ STOR M(result)
+
+
+.org 0x20
+const3: .word 3
+# DEFINA t cualquiera
+t: .word 5
+result:

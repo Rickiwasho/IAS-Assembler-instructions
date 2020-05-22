@@ -1,0 +1,23 @@
+.org 0x000
+
+LOAD MQ, M(result) MUL M(i)
+LOAD MQ STOR M(result)
+LOAD M(i) ADD M(const)
+STOR M(i) SUB M(n)
+JUMP+ M(0x030) JUMP M(0x000)
+
+HALT: 
+
+
+
+.org 0x020
+const: .word 1
+n: .word 10
+i: .word 1
+result: .word 1
+
+
+.org 0x030
+LOAD MQ, M(result) MUL M(n)
+LOAD MQ STOR M(result)
+JUMP M(HALT) LOAD M(const)
