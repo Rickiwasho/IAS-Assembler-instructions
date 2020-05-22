@@ -1,0 +1,50 @@
+# Encontrar el mayor y menor
+.org 0x000
+
+# cargo primer valor del array en memoria 0x050
+# cargo en acumulador el valor celda de memoria en hex
+lOAD M(0x050) LOAD M(a)
+# al valor celda le sumo 1 
+# almaceno el resultado en a
+ADD M(cont) STOR M(a)
+# me dirijo a la parte derecha de la celda de memoria 0x000
+# se realiza el mismo proceso, aunque esta vez el valor de a es 0x051
+STA M(0x000, 8:19) LOAD M(largo)
+SUB M(a) JUMP+ M(0x000)
+JUMP M(HALT)
+
+
+
+HALT:
+
+
+
+.org 0x010
+a: .word 0x050
+largo: .word 0x063
+cont: .word 1
+menor: .word 0
+const1: .word 1
+
+
+.org 0x050
+.word 54
+.word 35 
+.word 48 
+.word 32 
+.word 45 
+.word 5 
+.word 92 
+.word 30 
+.word 83 
+.word 78 
+.word 1 
+.word 35 
+.word 72 
+.word 84 
+.word 91 
+.word 71 
+.word 79 
+.word 54 
+.word 26 
+.word 56 

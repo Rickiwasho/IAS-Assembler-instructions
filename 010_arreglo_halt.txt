@@ -1,0 +1,18 @@
+.org 0x000
+LOAD M(0x020) LOAD M(a)
+ADD M(cont) STOR M(a)
+STA M(0x000, 8:19) LOAD M(largo)
+SUB M(a) JUMP+ M(0x000)
+JUMP M(HALT)
+
+HALT:
+
+.org 0x010
+a: .word 0x020
+cont: .word 1
+largo: .word 0x022
+
+.org 0x020
+.word 10
+.word 20
+.word 30

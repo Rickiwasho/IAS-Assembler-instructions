@@ -1,0 +1,17 @@
+.org 0x000
+LOAD M(i) ADD M(result)
+STOR M(result) LOAD M(i)
+ADD M(const) STOR M(i)
+LOAD M(n) SUB M(i)
+JUMP+ M(0x000) JUMP M(HALT)
+
+
+HALT:
+
+.org 0x050
+i: .word 1
+const: .word 1
+result: .word 0
+
+.org 0x100
+n: .word 10

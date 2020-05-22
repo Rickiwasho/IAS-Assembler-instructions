@@ -1,0 +1,44 @@
+# ¿Para qué sirve el STA M(dir_instruccion, dir)
+# Sirve pra cambiar el argumento de una instruccion 
+# Se usa para recorrer arreglos
+
+
+# Partimos el programa desde la celda de memoria 0x000
+.org 0x000
+
+# Leer lo que hay en la direccion de memoria 0x020
+LOAD M(0x020)
+
+# Cargar a, a hace referencia a donde empieza el arreglo
+ LOAD M(a)
+
+# Sumo const=1 a la referencia de la celda de memoria
+# por ende, el acumulador almacena la celda 0x021
+ADD M(const)
+
+# El valor almacenado en el acumulador se almacen en a
+STOR M(a)
+
+# Con STA editamos el argumento de la instrucción almacenada
+# en la celda 0x000, su arguento es 0x021, además se especifica
+# los bits de la instruccion en donde almacena la dirección del argumento
+STA M(0x000, 8:19)
+
+# Luego con JUMP saltamos nuevamente a la celda 0x000 y ejecutamos
+JUMP M(0x000)
+
+# Sin embargo, esto genera un bucle infinito. Es el algoritmo buscará en las
+# siguientes celdas de memoria. Hay que definir el término de ejecucion
+
+
+
+
+.org 0x010
+a: .word 0x020
+const: .word 1
+largo: .word 3
+
+.org 0x020
+.word 10
+.word 30
+.word 40
