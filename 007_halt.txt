@@ -1,0 +1,13 @@
+.org 0x000
+LOAD M(n) DIV M(a)
+SUB M(aux) JUMP+ M(0x003,20:39)
+LOAD M(aux) STOR M(0x050)
+JUMP M(HALT) LOAD M(aux)
+STOR M(0x051) JUMP M(HALT)
+
+HALT:
+
+.org 0x100
+n: .word 10
+a: .word 2
+aux: .word 1

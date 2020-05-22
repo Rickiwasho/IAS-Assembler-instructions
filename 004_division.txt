@@ -1,0 +1,9 @@
+.org 0x000
+LOAD M(A) DIV M(B)
+STOR M(0x003) LOAD MQ
+STOR M(0x002)
+
+
+.org 0x010
+A: .word 10
+B: .word 3

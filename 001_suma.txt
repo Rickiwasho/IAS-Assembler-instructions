@@ -1,0 +1,10 @@
+.org 0x000
+LOAD M(A) ADD M(B)
+STOR M(C)
+
+
+.org 0x010
+
+A: .word 8
+B: .word 5
+C:

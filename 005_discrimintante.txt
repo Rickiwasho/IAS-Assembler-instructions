@@ -1,0 +1,26 @@
+.org 0x000
+LOAD MQ, M(B) MUL M(B)
+LOAD MQ STOR M(aux)
+LOAD MQ, M(A) MUL M(C)
+MUL M(const4) LOAD MQ
+STOR M(aux2) LOAD M(aux)
+SUB M(aux2) STOR M(result)
+JUMP M(HALT)
+
+HALT:
+
+
+
+
+
+
+
+
+.org 0x100
+A: .word 1
+B: .word 5
+C: .word 2
+aux: .word 0
+aux2: .word 0   
+result: .word 0
+const4: .word 4

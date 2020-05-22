@@ -1,0 +1,7 @@
+.org 0x000
+LOAD MQ, M(const) MUL M(const2)
+LOAD MQ STOR M(0x003)
+
+.org 0x010
+const: .word 10
+const2: .word 10

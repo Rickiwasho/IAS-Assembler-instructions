@@ -1,0 +1,25 @@
+.org 0x000
+
+LOAD M(0x010) ADD M(0x011)
+STOR M(0x012) JUMP M(0x030)
+
+.org 0x030
+LOAD M(C) SUB M(0x013)
+JUMP+ M(0x050, 20:39)
+
+
+
+.org 0x010
+A: .word 2
+B: .word 2
+C:
+D: .word 3
+E:
+LOAD M(E) ADD M(0x101)
+STOR M(0x102)
+
+.org 0x050
+STOR M(0x014) JUMP M(0x000)
+
+.org 0x101
+F: .word 22
